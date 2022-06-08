@@ -4,7 +4,7 @@ function isPlainObject(obj) {
   return _toString.call(obj) === '[object Object]'
 }
 // 深合并,数组中的数据不参与合并
-export function deeoAssign(target, ...sources) {
+export function deepAssign(target, ...sources) {
   if (!isPlainObject(target)) {
     return target
   }
@@ -31,3 +31,32 @@ export function deeoAssign(target, ...sources) {
   })
   return target
 }
+
+
+
+let b = {
+  people: {
+    name: 'xx',
+    age: '11',
+    fn: {},
+    arr: [1, 2, 3],
+  },
+  name1: {
+    name2: '',
+  },
+}
+let c = {
+  people: {
+    name: 'xx',
+    age: '11',
+    fn: {
+      name: '11',
+    },
+    arr: [1, 2, 4],
+  },
+  name1: {
+    name2: {},
+  },
+}
+
+console.log(deepAssign({}, b, c))
