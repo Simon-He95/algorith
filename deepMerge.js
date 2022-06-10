@@ -59,4 +59,4 @@ let c = {
   },
 }
 
-console.log(deepAssign({}, b, c))
+console.log(deepMerge({}, b, c))

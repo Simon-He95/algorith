@@ -25,6 +25,7 @@ const tasks = [
 
 
 function asyncPool(limit = 4, tasks) {
+  console.log(tasks)
   const maxLength = tasks.length
   let results = [],
     count = 0,
