@@ -4,7 +4,7 @@ function isPlainObject(obj) {
   return _toString.call(obj) === '[object Object]'
 }
 // 深合并,数组中的数据不参与合并
-export function deepAssign(target, ...sources) {
+export function deepMerge(target, ...sources) {
   if (!isPlainObject(target)) {
     return target
   }
@@ -22,7 +22,7 @@ export function deepAssign(target, ...sources) {
           isPlainObject(target[key]) &&
           isPlainObject(source[key])
         ) {
-          objectMix(target[key], source[key])
+          deepMerge(target[key], source[key])
         } else {
           target[key] = source[key]
         }
